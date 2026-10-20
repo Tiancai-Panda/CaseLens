@@ -47,7 +47,7 @@
 
 ## 2026-10-12 WSL 运行时改造验证
 
-本次验证在 WSL Ubuntu 项目 `/home/tcpanda/projects/caselens` 中执行，未修改 Windows 项目。测试使用离线 replay、mock Controller/VLM 和本地 stdio MCP；由于 Jev API 当前不可连接，没有发起真实 Jev、VLM 或 Controller 请求。
+
 
 | 验证 | 结果 |
 |---|---|
