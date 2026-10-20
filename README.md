@@ -1,12 +1,11 @@
 # CaseLens
 
-[中文使用说明](README.zh-CN.md)
 
 CaseLens is an evidence-grounded after-sales Agent with Web and CLI entry points. A VLM extracts visual facts, TypeSafe Jev makes typed decisions over structured evidence and policy, and a controller selects native function calls. Suggestions are never executed as real refunds or shipments.
 
 ## Current Runtime (2026-10-12)
 
-The updated project is in WSL Ubuntu at `/home/tcpanda/projects/caselens`. The Windows copy was not updated.
+
 
 - LangGraph 0.6.11 StateGraph: bootstrap → load_skills → prepare_context → controller → tools → checkpoint → loop/finalize.
 - MCP SDK 1.30.0: real stdio discovery and crop/resize/rotate calls with persistent derived images and provenance.
@@ -74,8 +73,8 @@ doctor without --probe checks configuration only. inspect runs the customer Agen
 .venv/bin/python -m pip check
 ```
 
-The last complete runtime verification passed 203 tests, lint, dependency checks and wheel build. Tests use replay/mock model responses and real local MCP, not live Jev/VLM/controller calls or labeled accuracy evaluation. See [verification record](docs/verification.md) for current documentation checks and browser-test limitations.
+
 
 At most six controller rounds and two additional analyses per original image; parameters, legal actions, paths, geometry and evidence references are validated. Client transport retries are not multiplied by graph retries. Context budgeting uses a conservative UTF-8 byte ceiling, not exact provider tokenization. Same-case memory is not RAG or cross-customer long-term memory.
 
-Not implemented: PDF/Office, authenticated multi-tenant deployment, distributed scheduling, real order writes or automatic refunds. [Six project proposals](docs/project-options.md) are design alternatives, not six delivered products. Resume claims must not invent accuracy, calibration, latency or cost improvements.
+
