@@ -1,6 +1,6 @@
 # CaseLens
 
-[中文使用说明](README.zh-CN.md) · [Project guide (Chinese)](PROJECT_GUIDE.zh-CN.md) · [Resume and interview Q&A (Chinese)](PROJECT_RESUME.zh-CN.md)
+[中文使用说明](README.zh-CN.md)
 
 CaseLens is an evidence-grounded after-sales Agent with Web and CLI entry points. A VLM extracts visual facts, TypeSafe Jev makes typed decisions over structured evidence and policy, and a controller selects native function calls. Suggestions are never executed as real refunds or shipments.
 
