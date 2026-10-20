@@ -1,6 +1,6 @@
 # CaseLens 当前实现规格
 
-更新日期：2026-10-12。目标为 WSL `/home/tcpanda/projects/caselens`；本页描述实际实现，不将六个候选方案当作六套产品。
+
 
 原改造设计与 GitHub 调研保留在 [runtime-design](superpowers/specs/2026-10-12-runtime-design.md)。设计已实施，最终版本、验证和落地差异以本页及 [verification](verification.md) 为准。
 
