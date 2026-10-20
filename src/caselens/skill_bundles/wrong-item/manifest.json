@@ -1,0 +1,11 @@
+{
+  "name": "wrong-item",
+  "version": "1.0.0",
+  "issues": [
+    "wrong_item"
+  ],
+  "resources": [
+    "references/evidence-checklist.md"
+  ],
+  "tools": {}
+}

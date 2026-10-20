@@ -1,0 +1,11 @@
+{
+  "name": "return-request",
+  "version": "1.0.0",
+  "issues": [
+    "return_request"
+  ],
+  "resources": [
+    "references/evidence-checklist.md"
+  ],
+  "tools": {}
+}

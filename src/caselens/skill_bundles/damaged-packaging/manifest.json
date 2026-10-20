@@ -1,0 +1,11 @@
+{
+  "name": "damaged-packaging",
+  "version": "1.0.0",
+  "issues": [
+    "packaging_issue"
+  ],
+  "resources": [
+    "references/evidence-checklist.md"
+  ],
+  "tools": {}
+}

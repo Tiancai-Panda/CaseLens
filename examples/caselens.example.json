@@ -1,0 +1,18 @@
+{
+  "vlm": {
+    "base_url": "https://your-vlm-provider.example/v1",
+    "model": "your-vision-model",
+    "api_key": "",
+    "structured_mode": "json_schema"
+  },
+  "controller": {
+    "base_url": "https://your-tool-calling-provider.example/v1",
+    "model": "your-tool-calling-model",
+    "api_key": ""
+  },
+  "jev": {
+    "model": "your-jev-model",
+    "api_key": ""
+  },
+  "state_dir": ".caselens"
+}

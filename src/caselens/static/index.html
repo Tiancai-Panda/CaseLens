@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CaseLens · 售后工作台</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<header><div class="brand"><span class="logo">CL</span><strong>CaseLens</strong><span class="workspace">售后工作台</span></div><span id="connection" class="muted">连接中</span></header>
+<div class="layout"><aside><button id="newCase" class="primary wide">新建工单</button><div class="section-heading"><h2>最近工单</h2><button id="refresh" title="刷新工单" aria-label="刷新工单">↻</button></div><div id="cases" class="case-list"></div></aside>
+<main><div class="page-heading"><div><h1 id="heading">新建售后工单</h1><p id="caseInfo" class="muted">未提交</p></div><span id="status" class="badge">待提交</span></div>
+<div class="work-grid"><section class="composer"><h2 id="formHeading">提交材料</h2><form id="form">
+<label for="replay">运行模式</label><select id="replay"><option value="">真实 API</option><optgroup label="离线回放"><option value="clear">包装破损</option><option value="blurred">模糊照片</option><option value="irrelevant">无关照片</option><option value="missing">缺少材料</option><option value="quantity">数量不足</option><option value="multiple">复合诉求</option><option value="return">退货申请</option><option value="wrong">货不对版</option><option value="split">分包配送核对</option></optgroup></select>
+<label for="order">订单编号</label><input id="order" placeholder="ORDER-20261008-001" maxlength="200">
+<label for="text">问题描述 / 补充说明</label><textarea id="text" rows="5" maxlength="8000" placeholder="收到什么商品、发现什么问题、希望如何处理…"></textarea>
+<label for="images">照片 · 最多 8 张 / 每张 20 MiB</label><input id="images" type="file" accept="image/png,image/jpeg,image/webp" multiple><div id="previews" class="previews"></div>
+<div id="supplementOptions" hidden><label for="replaceAsset">图片提交方式</label><select id="replaceAsset"><option value="">追加图片</option></select><label class="checkbox"><input id="replaceText" type="checkbox">更正此前描述</label></div>
+<p id="formError" class="error" role="alert"></p><button id="start" class="primary wide" type="submit">开始分析</button><button id="retry" class="wide" type="button" hidden>恢复中断任务</button></form>
+<div id="resumePanel" hidden><h3>补交要求</h3><div id="guidance" class="guidance"></div></div></section>
+<section class="output"><div class="tabs" role="tablist"><button data-tab="result" class="active" role="tab">结果</button><button data-tab="timeline" role="tab">执行进度</button><button data-tab="evidence" role="tab">视觉证据</button><button data-tab="history" role="tab">历史</button><button data-tab="debug" role="tab">JSON</button></div>
+<div id="resultView" class="view"><div id="empty" class="empty"><span class="empty-mark">CL</span><h2>等待售后材料</h2><p class="muted">尚无核查结果</p></div><div id="resultContent" hidden><div id="metrics" class="metrics"></div><div class="section-heading"><h2>处理结果</h2><a id="download" hidden>下载报告</a></div><pre id="userMessage" class="user-message"></pre><div id="findings"></div><div id="resolutions"></div><p class="notice">处理建议均未执行，退款资格、金额与发货需人工确认。</p></div></div>
+<div id="timelineView" class="view" hidden><h2>Agent 执行记录</h2><ol id="timeline" class="timeline"></ol></div><div id="evidenceView" class="view" hidden><div id="evidence"></div></div><div id="historyView" class="view" hidden><div id="history"></div></div><div id="debugView" class="view" hidden><pre id="details" class="debug">{}</pre></div></section></div></main></div>
+<script src="/static/app.js"></script></body></html>

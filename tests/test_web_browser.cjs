@@ -1,0 +1,40 @@
+const {chromium} = require('playwright');
+const assert = require('node:assert/strict');
+(async () => {
+  const browser = await chromium.launch({headless: true, channel: 'msedge'});
+  const page = await browser.newPage({viewport: {width: 1440, height: 1000}});
+  const errors = [];
+  page.on('pageerror', e => errors.push(e.message));
+  try {
+    await page.goto(process.env.CASELENS_TEST_URL || 'http://127.0.0.1:8765');
+    await page.locator('#connection').filter({hasText: '本地服务'}).waitFor();
+    await page.locator('#replay').selectOption('irrelevant');
+    await page.locator('#text').fill('外包装破损');
+    await page.locator('#order').fill('BROWSER-TEST');
+    await page.locator('#images').setInputFiles('outputs/demo/clear/synthetic.png');
+    await page.locator('#form').evaluate(form => form.requestSubmit());
+    await page.locator('#start').filter({hasText: '补交并继续'}).waitFor({timeout: 30000});
+    assert.match(await page.locator('#userMessage').innerText(), /重新拍摄/);
+    const caseId = (await page.locator('#caseInfo').innerText()).split(' · ')[0];
+    await page.screenshot({path: 'outputs/web-desktop.png', fullPage: true});
+    await page.locator('[data-tab="evidence"]').click();
+    await page.locator('#evidence img').evaluate(img => img.decode());
+    await page.screenshot({path: 'outputs/web-evidence.png', fullPage: true});
+    await page.locator('#replay').selectOption('clear');
+    await page.locator('#text').fill('已补充说明与订单');
+    await page.locator('#form').evaluate(form => form.requestSubmit());
+    await page.locator('#status').filter({hasText: '建议已生成'}).waitFor({timeout: 30000});
+    assert.match(await page.locator('#caseInfo').innerText(), new RegExp(caseId));
+    assert.match(await page.locator('#userMessage').innerText(), /建议补偿/);
+    await page.screenshot({path: 'outputs/web-result.png', fullPage: true});
+    await page.locator('[data-tab="history"]').click();
+    assert.equal(await page.locator('.history-row').count(), 2);
+    await page.locator('[data-tab="timeline"]').click();
+    assert.ok(await page.locator('.timeline li').count() > 5);
+    await page.setViewportSize({width: 390, height: 844});
+    await page.screenshot({path: 'outputs/web-mobile.png', fullPage: true});
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+    assert.deepEqual(errors, []);
+    console.log('Desktop/mobile UI: create, SSE, supplement, same-case history, evidence image and no overflow passed.');
+  } finally { await browser.close(); }
+})().catch(e => {console.error(e); process.exit(1);});

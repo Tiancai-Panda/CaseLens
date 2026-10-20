@@ -1,0 +1,16 @@
+{
+  "input": {
+    "expected": 3,
+    "received": 2,
+    "pending": 1,
+    "order_evidence": true,
+    "complete_photo": true,
+    "evidence_ids": [
+      "order-example",
+      "photo-example",
+      "tracking-example"
+    ]
+  },
+  "expected_status": "pending_shipment",
+  "note": "Illustrative IDs; replace with validated case evidence."
+}

@@ -1,0 +1,11 @@
+{
+  "name": "product-issue",
+  "version": "1.0.0",
+  "issues": [
+    "product_issue"
+  ],
+  "resources": [
+    "references/evidence-checklist.md"
+  ],
+  "tools": {}
+}

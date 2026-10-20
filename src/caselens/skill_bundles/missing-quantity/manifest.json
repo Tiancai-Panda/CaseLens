@@ -1,0 +1,17 @@
+{
+  "name": "missing-quantity",
+  "version": "1.0.0",
+  "issues": [
+    "missing_quantity"
+  ],
+  "resources": [
+    "references/evidence-checklist.md",
+    "references/split-shipment.md",
+    "schemas/quantity-evidence.schema.json",
+    "examples/multi-package.json",
+    "scripts/check_quantity.py"
+  ],
+  "tools": {
+    "check_quantity": "scripts/check_quantity.py"
+  }
+}
